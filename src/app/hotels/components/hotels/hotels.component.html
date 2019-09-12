@@ -1,11 +1,15 @@
 <app-header></app-header>
 <div class="element">
   <div class="element-left">
-    <app-hotel-list [hotels]="hotels"></app-hotel-list>
+    <app-hotel-list
+      [hotels]="hotels"
+      [curentHotel]="curentHotel"
+      (hotel)="selectHotel($event)"
+    ></app-hotel-list>
   </div>
   <div class="element-right">
-    <app-weather [weather]="weather"></app-weather>
-    <app-profile [profile]="profile"></app-profile>
+    <app-weather [weather]="curentHotel.weather"></app-weather>
+    <app-profile [profile]="curentHotel.profile"></app-profile>
   </div>
   <div class="clear"></div>
 </div>

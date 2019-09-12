@@ -1,26 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 
-export interface Hotel {
-  id: number;
-  title: string;
-  address: string;
-  description: string;
-  phone: string;
-  picture: string;
-  photos: string[];
-  weather: {
-    temperature: number;
-    wind: number;
-    icon: string;
-  };
-  profile: {
-    followers: number;
-    following: number;
-    photo: string;
-  };
-  stars: number;
-}
-
 @Component({
   selector: "app-hotels",
   templateUrl: "./hotels.component.html",
@@ -34,17 +13,17 @@ export class HotelsComponent implements OnInit {
       address: "Orlando",
       description: "Best one!",
       phone: "+3242353434",
-      picture: "assets/images/1.jpeg",
-      photos: ["./assets/images/res.jpg", "./assets/images/r1.jpg"],
+      picture: "assets/images/1.jpg",
+      photos: ["assets/images/res.jpg", "assets/images/r1.jpg"],
       weather: {
         temperature: 12,
         wind: 11,
-        icon: "assets/icons/sun.png"
+        icon: "sun"
       },
       profile: {
         followers: 112,
         following: 11,
-        photo: "assets/images/b1.jpeg"
+        photo: "assets/images/b1.jpg"
       },
       stars: 3
     },
@@ -54,17 +33,17 @@ export class HotelsComponent implements OnInit {
       address: "Kharkov",
       description: "Five Stars",
       phone: "+3242353434",
-      picture: "assets/images/2.jpeg",
-      photos: ["./assets/images/res.jpg", "./assets/images/r1.jpg"],
+      picture: "assets/images/2.jpg",
+      photos: ["assets/images/res.jpg", "assets/images/r1.jpg"],
       weather: {
         temperature: 5,
         wind: 4,
-        icon: "assets/icons/rain.png"
+        icon: "rain"
       },
       profile: {
         followers: 12,
         following: 111,
-        photo: "assets/images/b2.jpeg"
+        photo: "assets/images/b2.jpg"
       },
       stars: 4
     },
@@ -74,25 +53,28 @@ export class HotelsComponent implements OnInit {
       address: "Orlando",
       description: "Lorem ipson0",
       phone: "+3242353434",
-      picture: "assets/images/3.jpeg",
-      photos: ["./assets/images/res.jpg", "./assets/images/r1.jpg"],
+      picture: "assets/images/3.jpg",
+      photos: ["assets/images/res.jpg", "assets/images/r1.jpg"],
       weather: {
         temperature: -2,
         wind: 2,
-        icon: "assets/icons/cloud.png"
+        icon: "cloud"
       },
       profile: {
         followers: 45,
         following: 78,
-        photo: "assets/images/b3.jpeg"
+        photo: "assets/images/b3.jpg"
       },
       stars: 5
     }
   ];
+  public curentHotel: Hotel = this.hotels[0];
+
   constructor() {}
 
-  public weather = this.hotels[0].weather;
-  public profile = this.hotels[0].profile;
-
   ngOnInit() {}
+
+  public selectHotel(hotel: Hotel) {
+    this.curentHotel = hotel;
+  }
 }

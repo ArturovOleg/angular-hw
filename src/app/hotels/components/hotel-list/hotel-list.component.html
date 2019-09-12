@@ -1,5 +1,5 @@
 <div class="element-bg-img">
-  <img src="./assets/images/1.jpg" alt="" class="img-responsive" />
+  <img [src]="curentHotel.picture" alt="" class="img-responsive" />
 </div>
 <div class="element-left-bottom">
   <div class="ele-strip">
@@ -18,6 +18,8 @@
         <app-hotel-card
           *ngFor="let hotel of hotels"
           [hotel]="hotel"
+          [curentHotel]="curentHotel"
+          (click)="selectHotel(hotel)"
         ></app-hotel-card>
       </div>
     </div>
